@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from "react";
+import React, { useRef } from "react";
 import {
   Button,
   SafeAreaView,
@@ -20,6 +20,10 @@ import {
 } from "react-native";
 import { Colors, Header } from "react-native/Libraries/NewAppScreen";
 import NativeSampleTurboModule from "./jsi_lib/NativeSampleTurboModule";
+import NativeSampleFabricView, {
+  NativeSampleFabricViewType,
+  Commands as AnswerViewerCommands,
+} from "./jsi_lib/NativeSampleFabricView";
 
 const App = () => {
   const isDarkMode = useColorScheme() === "dark";
@@ -27,6 +31,8 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  const ref = useRef<React.ElementRef<NativeSampleFabricViewType> | null>(null);
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -41,6 +47,12 @@ const App = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}
         >
+          <NativeSampleFabricView
+            ref={ref}
+            style={{ backgroundColor: "red", height: 30 }}
+            step={222}
+            color="white"
+          />
           <Button
             title="syncOne"
             onPress={() => {
@@ -55,6 +67,13 @@ const App = () => {
               const endTime = new Date().getTime();
               console.log("interval = ", endTime - startTime);
               console.log("res = ", res);
+            }}
+          />
+          <Button
+            title="changeBackgroundColor"
+            onPress={() => {
+              ref.current &&
+                AnswerViewerCommands.changeBackgroundColor(ref.current, "blue");
             }}
           />
         </View>

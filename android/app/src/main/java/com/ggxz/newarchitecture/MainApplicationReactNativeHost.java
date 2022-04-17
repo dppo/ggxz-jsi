@@ -22,13 +22,16 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.module.model.ReactModuleInfo;
 import com.facebook.react.module.model.ReactModuleInfoProvider;
+import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.ggxz.BuildConfig;
 import com.ggxz.newarchitecture.components.MainComponentsRegistry;
+import com.ggxz.newarchitecture.components.NativeSampleFabricViewManager;
 import com.ggxz.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import com.ggxz.newarchitecture.modules.NativeSampleTurboModule;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,6 +90,21 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
           );
           return moduleInfos;
         };
+      }
+    });
+    packages.add(new ReactPackage() {
+      @NonNull
+      @Override
+      public List<NativeModule> createNativeModules(
+              @NonNull ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+      }
+
+      @NonNull
+      @Override
+      public List<ViewManager> createViewManagers(
+              @NonNull ReactApplicationContext reactContext) {
+        return Collections.singletonList(new NativeSampleFabricViewManager());
       }
     });
     return packages;
