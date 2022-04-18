@@ -28,6 +28,7 @@ import com.ggxz.BuildConfig;
 import com.ggxz.newarchitecture.components.MainComponentsRegistry;
 import com.ggxz.newarchitecture.components.NativeSampleFabricViewManager;
 import com.ggxz.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.ggxz.newarchitecture.modules.NativeNavigation;
 import com.ggxz.newarchitecture.modules.NativeSampleTurboModule;
 
 import java.util.ArrayList;
@@ -67,6 +68,8 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
       public NativeModule getModule(String name, ReactApplicationContext reactContext) {
         if (name.equals(NativeSampleTurboModule.NAME)) {
           return new NativeSampleTurboModule(reactContext);
+        } else if (name.equals(NativeNavigation.NAME)) {
+          return new NativeNavigation(reactContext);
         } else {
           return null;
         }
@@ -81,6 +84,18 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
                   new ReactModuleInfo(
                           NativeSampleTurboModule.NAME,
                           "NativeSampleTurboModule",
+                          false, // canOverrideExistingModule
+                          false, // needsEagerInit
+                          true, // hasConstants
+                          false, // isCxxModule
+                          true // isTurboModule
+                  )
+          );
+          moduleInfos.put(
+                  NativeNavigation.NAME,
+                  new ReactModuleInfo(
+                          NativeNavigation.NAME,
+                          "NativeNavigation",
                           false, // canOverrideExistingModule
                           false, // needsEagerInit
                           true, // hasConstants

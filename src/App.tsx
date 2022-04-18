@@ -19,13 +19,27 @@ import {
   View,
 } from "react-native";
 import { Colors, Header } from "react-native/Libraries/NewAppScreen";
-import NativeSampleTurboModule from "./jsi_lib/NativeSampleTurboModule";
+import NativeSampleTurboModule from "../jsi_lib/NativeSampleTurboModule";
 import NativeSampleFabricView, {
   NativeSampleFabricViewType,
   Commands as AnswerViewerCommands,
-} from "./jsi_lib/NativeSampleFabricView";
+} from "../jsi_lib/NativeSampleFabricView";
+import NativeNavigation from "../jsi_lib/NativeNavigation";
+import { name as appName } from "../app.json";
+import ScreenOne from "./sreens/ScreenOne";
+import ScreenTwo from "./sreens/ScreenTwo";
+import ScreenThree from "./sreens/ScreenThree";
 
-const App = () => {
+const App = (props: { screenName: string }) => {
+  const { screenName } = props;
+  if (screenName == "ScreenOne") {
+    return <ScreenOne />;
+  } else if (screenName == "ScreenTwo") {
+    return <ScreenTwo />;
+  } else if (screenName == "ScreenThree") {
+    return <ScreenThree />;
+  }
+
   const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
@@ -74,6 +88,28 @@ const App = () => {
             onPress={() => {
               ref.current &&
                 AnswerViewerCommands.changeBackgroundColor(ref.current, "blue");
+            }}
+          />
+          <Button
+            title="Push"
+            onPress={() => {
+              NativeNavigation.navigate(appName, {
+                screenName: "ScreenOne",
+                id: "1",
+                name: "1",
+              });
+            }}
+          />
+          <Button
+            title="goBack"
+            onPress={() => {
+              NativeNavigation.goBack();
+            }}
+          />
+          <Button
+            title="popToTop"
+            onPress={() => {
+              NativeNavigation.popToTop();
             }}
           />
         </View>
