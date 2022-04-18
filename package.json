@@ -42,5 +42,19 @@
       "json",
       "node"
     ]
+  },
+  "codegenConfig": {
+    "libraries": [
+      {
+        "name": "NativeSampleTurboModuleSpec",
+        "type": "modules",
+        "jsSrcsDir": "jsi_lib"
+      },
+      {
+        "name": "NativeSampleFabricViewSpec",
+        "type": "components",
+        "jsSrcsDir": "jsi_lib"
+      }
+    ]
   }
 }

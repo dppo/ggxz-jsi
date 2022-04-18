@@ -14,6 +14,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-ggxz-ggxzTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ggxz-ggxzTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F2A87230280CFA18005B1ECA /* NativeSampleTurboModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2A8722F280CFA18005B1ECA /* NativeSampleTurboModule.mm */; };
+		F2A87233280D0099005B1ECA /* NativeSampleFabricView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2A87232280D0099005B1ECA /* NativeSampleFabricView.mm */; };
+		F2A87235280D0129005B1ECA /* NativeSampleFabricViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A87234280D0129005B1ECA /* NativeSampleFabricViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,11 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ggxz/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ggxz-ggxzTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ggxz-ggxzTests.release.xcconfig"; path = "Target Support Files/Pods-ggxz-ggxzTests/Pods-ggxz-ggxzTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F2A8722E280CFA18005B1ECA /* NativeSampleTurboModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeSampleTurboModule.h; sourceTree = "<group>"; };
+		F2A8722F280CFA18005B1ECA /* NativeSampleTurboModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeSampleTurboModule.mm; sourceTree = "<group>"; };
+		F2A87231280D0099005B1ECA /* NativeSampleFabricView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeSampleFabricView.h; sourceTree = "<group>"; };
+		F2A87232280D0099005B1ECA /* NativeSampleFabricView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeSampleFabricView.mm; sourceTree = "<group>"; };
+		F2A87234280D0129005B1ECA /* NativeSampleFabricViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeSampleFabricViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		13B07FAE1A68108700A75B9A /* ggxz */ = {
 			isa = PBXGroup;
 			children = (
+				F2A8722B280CF963005B1ECA /* newarchitecture */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -146,6 +155,35 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-ggxz-ggxzTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F2A8722B280CF963005B1ECA /* newarchitecture */ = {
+			isa = PBXGroup;
+			children = (
+				F2A8722C280CF963005B1ECA /* components */,
+				F2A8722D280CF963005B1ECA /* modules */,
+			);
+			name = newarchitecture;
+			path = ggxz/newarchitecture;
+			sourceTree = "<group>";
+		};
+		F2A8722C280CF963005B1ECA /* components */ = {
+			isa = PBXGroup;
+			children = (
+				F2A87231280D0099005B1ECA /* NativeSampleFabricView.h */,
+				F2A87232280D0099005B1ECA /* NativeSampleFabricView.mm */,
+				F2A87234280D0129005B1ECA /* NativeSampleFabricViewManager.m */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		F2A8722D280CF963005B1ECA /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				F2A8722E280CFA18005B1ECA /* NativeSampleTurboModule.h */,
+				F2A8722F280CFA18005B1ECA /* NativeSampleTurboModule.mm */,
+			);
+			path = modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,7 +449,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				F2A87230280CFA18005B1ECA /* NativeSampleTurboModule.mm in Sources */,
+				F2A87233280D0099005B1ECA /* NativeSampleFabricView.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F2A87235280D0129005B1ECA /* NativeSampleFabricViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
