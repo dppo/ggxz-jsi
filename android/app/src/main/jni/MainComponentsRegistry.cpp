@@ -22,6 +22,8 @@ MainComponentsRegistry::sharedProviderRegistry() {
   //        AocViewerComponentDescriptor>());
   providerRegistry->add(concreteComponentDescriptorProvider<
           NativeSampleFabricViewComponentDescriptor>());
+  providerRegistry->add(concreteComponentDescriptorProvider<
+          NativeListViewComponentDescriptor>());
   return providerRegistry;
 }
 

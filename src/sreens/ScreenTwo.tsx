@@ -36,6 +36,7 @@ export default function ScreenTwo() {
       <FlatList
         style={{ flex: 1 }}
         data={data}
+        scrollEventThrottle={16}
         renderItem={(rowData) => {
           return (
             <View
@@ -48,6 +49,9 @@ export default function ScreenTwo() {
               <Text style={{ fontSize: 16, color: "red" }}>{rowData.item}</Text>
             </View>
           );
+        }}
+        onScroll={(event) => {
+          console.log("onScroll = ", event.nativeEvent.contentOffset.y);
         }}
       />
     </View>

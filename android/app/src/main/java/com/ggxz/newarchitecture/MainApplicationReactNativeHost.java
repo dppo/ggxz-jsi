@@ -26,6 +26,7 @@ import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.ggxz.BuildConfig;
 import com.ggxz.newarchitecture.components.MainComponentsRegistry;
+import com.ggxz.newarchitecture.components.NativeListViewManager;
 import com.ggxz.newarchitecture.components.NativeSampleFabricViewManager;
 import com.ggxz.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import com.ggxz.newarchitecture.modules.NativeNavigation;
@@ -119,7 +120,10 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
       @Override
       public List<ViewManager> createViewManagers(
               @NonNull ReactApplicationContext reactContext) {
-        return Collections.singletonList(new NativeSampleFabricViewManager());
+        List<ViewManager> managers = new ArrayList<>();
+        managers.add(new NativeSampleFabricViewManager());
+        managers.add(new NativeListViewManager());
+        return managers;
       }
     });
     return packages;

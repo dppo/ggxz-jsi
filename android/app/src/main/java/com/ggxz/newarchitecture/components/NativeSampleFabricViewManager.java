@@ -32,6 +32,11 @@ public class NativeSampleFabricViewManager extends SimpleViewManager<NativeSampl
     }
 
     @Override
+    public void receiveCommand(@NonNull NativeSampleFabricView root, String commandId, @Nullable ReadableArray args) {
+        mDelegate.receiveCommand(root, commandId, args);
+    }
+
+    @Override
     @ReactProp(name = "color")
     public void setColor(NativeSampleFabricView view, @Nullable String value) {
         view.setTextColor(Color.parseColor(value));
@@ -58,10 +63,5 @@ public class NativeSampleFabricViewManager extends SimpleViewManager<NativeSampl
     @Override
     protected NativeSampleFabricView createViewInstance(@NonNull ThemedReactContext reactContext) {
         return new NativeSampleFabricView(reactContext);
-    }
-
-    @Override
-    public void receiveCommand(@NonNull NativeSampleFabricView root, String commandId, @Nullable ReadableArray args) {
-        mDelegate.receiveCommand(root, commandId, args);
     }
 }
