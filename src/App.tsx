@@ -31,6 +31,7 @@ import ScreenTwo from "./sreens/ScreenTwo";
 import ScreenThree from "./sreens/ScreenThree";
 
 const App = (props: { screenName: string }) => {
+  // console.log("initialProps = ", props);
   const { screenName } = props;
   if (screenName == "ScreenOne") {
     return <ScreenOne />;

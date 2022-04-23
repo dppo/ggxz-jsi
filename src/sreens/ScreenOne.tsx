@@ -31,7 +31,7 @@ export default function ScreenOne() {
         }}
       />
       <NativeListView
-        style={{ flex: 1, backgroundColor: "red" }}
+        style={{ flex: 1, backgroundColor: "white" }}
         onScroll={(event: any) => {
           // const startTime = event.nativeEvent.timeStamp;
           // const endTime = new Date().getTime();

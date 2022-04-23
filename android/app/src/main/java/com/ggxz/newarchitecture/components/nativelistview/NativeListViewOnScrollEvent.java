@@ -1,4 +1,4 @@
-package com.ggxz.newarchitecture.components;
+package com.ggxz.newarchitecture.components.nativelistview;
 
 import androidx.annotation.Nullable;
 

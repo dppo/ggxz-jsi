@@ -1,12 +1,8 @@
-package com.ggxz.newarchitecture.components;
+package com.ggxz.newarchitecture.components.nativelistview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -17,13 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.uimanager.UIManagerHelper;
-import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.events.EventDispatcher;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class NativeListView extends RelativeLayout {
 
@@ -52,25 +45,25 @@ public class NativeListView extends RelativeLayout {
     }
 
     private void initView() {
-        NestedScrollView nestedScrollView = new NestedScrollView(getContext());
-        nestedScrollView.setBackgroundColor(Color.YELLOW);
-        nestedScrollView.setOnScrollChangeListener(new OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                handlerScroll(i1);
-            }
-        });
-        RelativeLayout.LayoutParams params =
-                new RelativeLayout.LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.MATCH_PARENT);
-        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        params.addRule(RelativeLayout.CENTER_VERTICAL);
-        this.addView(nestedScrollView, params);
-
+//        NestedScrollView nestedScrollView = new NestedScrollView(getContext());
+//        nestedScrollView.setVerticalScrollBarEnabled(true);
+//        nestedScrollView.setOverScrollMode(OVER_SCROLL_ALWAYS);
+//        nestedScrollView.setOnScrollChangeListener(new OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+//                handlerScroll(i1);
+//            }
+//        });
+//        RelativeLayout.LayoutParams params =
+//                new RelativeLayout.LayoutParams(
+//                        LayoutParams.MATCH_PARENT,
+//                        LayoutParams.MATCH_PARENT);
+//        this.addView(nestedScrollView, params);
 
         RecyclerView recyclerView = new RecyclerView(getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(false);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -82,10 +75,14 @@ public class NativeListView extends RelativeLayout {
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
-        nestedScrollView.addView(recyclerView, params);
+        RelativeLayout.LayoutParams params2 =
+                new RelativeLayout.LayoutParams(
+                        LayoutParams.MATCH_PARENT,
+                        LayoutParams.MATCH_PARENT);
+        this.addView(recyclerView, params2);
 
         List data = new ArrayList();
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 200; i++) {
             data.add(String.valueOf(i));
         }
         NativeListViewAdapter adapter = new NativeListViewAdapter(data);

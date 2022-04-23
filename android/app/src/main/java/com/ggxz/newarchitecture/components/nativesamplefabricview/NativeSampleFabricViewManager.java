@@ -1,4 +1,4 @@
-package com.ggxz.newarchitecture.components;
+package com.ggxz.newarchitecture.components.nativesamplefabricview;
 
 import android.graphics.Color;
 
